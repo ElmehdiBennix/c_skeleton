@@ -12,14 +12,15 @@
 
 NAME := utils.a
 
+# **************************************************************************** #
+
+CC := cc
 CFLAGS := -g -Wall -Wextra -Werror
 
 HEADER := /inc/utils.h
 COLORS := /inc/colors.h
 
 OBJ_DIR := obj_files
-
-CC := cc
 
 FILES := libft/string/ft_atoi		  libft/int/ft_itoa	               libft/int/ft_putnbr_fd	    \
 		 libft/int/ft_strlcpy		  libft/char/ft_tolower	           libft/errors/exit_msg        \
@@ -40,12 +41,12 @@ FILES := libft/string/ft_atoi		  libft/int/ft_itoa	               libft/int/ft_p
 		 libft/heap/free2d
 
 SRC := $(FILES:=.c)
-
 OBJ := $(SRC:.c=.o)
 
 AR := ar -rc
 RM := rm -rf
 
+# **************************************************************************** #
 
 all : $(NAME)
 
@@ -60,5 +61,7 @@ clean :
 
 fclean: clean
 	$(RM) $(NAME)
+
+# **************************************************************************** #
 
 .PHONY: all clean fclean

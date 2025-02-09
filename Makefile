@@ -10,39 +10,38 @@
 #                                                                              #
 # **************************************************************************** #
 
-EXE := 
+EXE :=
+EXE_B :=
 
-EXE_B := 
+# **************************************************************************** #
+
+CC := cc
+CFLAGS := -Wall -Wextra -Werror
+
+# **************************************************************************** #
 
 ARCH := utils/utils.a
 
-CC := cc
+HEADER :=
+HEADER_B :=
 
-CFLAGS := -Wall -Wextra -Werror
+FILES :=
+FILES_B :=
 
-HEADER := 
-
-HEADER := 
-
-FILES := 
-
-FILES_B := 
+# **************************************************************************** #
 
 SRC := $(FILES:=.c)
-
 OBJ := $(SRC:.c=.o)
 
 SRC_B := $(FILES_B:=.c)
-
 OBJ_B := $(SRC_B:.c=.o)
 
 RM := rm -rf
-
 m := MakefileAutoPush
 
+# **************************************************************************** #
 
 all : $(EXE)
-
 bonus : $(EXE_B)
 
 library:
@@ -69,10 +68,12 @@ fclean : clean
 
 re : fclean all
 
-git :
+push :
 	git add .
 	git status
 	git commit -m "$(m)"
 	git push
 
-.PHONY : all clean fclean re git play
+# **************************************************************************** #
+
+.PHONY : all clean fclean re push
